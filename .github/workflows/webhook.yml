@@ -1,0 +1,15 @@
+name: Webhook Trigger
+
+on:
+  repository_dispatch:
+    types: [custom-event]
+
+jobs:
+  run-on-webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run a script
+        run: echo "Workflow triggered by webhook"
